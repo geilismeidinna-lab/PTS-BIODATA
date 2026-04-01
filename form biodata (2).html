@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Biodata Elegan</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #d7ccc8, #efebe9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .card {
+            background: #fffaf5;
+            padding: 30px;
+            border-radius: 15px;
+            width: 360px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6d4c41;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            color: #5d4037;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #d7ccc8;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #8d6e63;
+            box-shadow: 0 0 8px rgba(141,110,99,0.5);
+        }
+
+        .radio-group {
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #8d6e63;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6d4c41;
+            transform: scale(1.05);
+        }
+
+        .hasil {
+            width: 360px;
+            background: #fffaf5;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-top: 20px;
+            display: none;
+        }
+
+        .hasil.show {
+            display: block;
+            animation: slideUp 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Form Biodata</h2>
+    <form id="biodataForm">
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" required>
+
+        <label>Kelas</label>
+        <input type="text" id="kelas" required>
+
+        <label>Jenis Kelamin</label>
+        <div class="radio-group">
+            <input type="radio" name="jk" value="Laki-laki"> Laki-laki
+            <input type="radio" name="jk" value="Perempuan"> Perempuan
+        </div>
+
+        <label>Alamat</label>
+        <textarea id="alamat" rows="3" required></textarea>
+
+        <label>Hobi</label>
+        <input type="text" id="hobi">
+
+        <button type="submit">Kirim</button>
+    </form>
+</div>
+
+<div class="hasil" id="output">
+    <h3>Data Tersimpan</h3>
+    <p><b>Nama:</b> <span id="outNama"></span></p>
+    <p><b>Kelas:</b> <span id="outKelas"></span></p>
+    <p><b>Jenis Kelamin:</b> <span id="outJK"></span></p>
+    <p><b>Alamat:</b> <span id="outAlamat"></span></p>
+    <p><b>Hobi:</b> <span id="outHobi"></span></p>
+</div>
+
+<script>
+document.getElementById("biodataForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let kelas = document.getElementById("kelas").value;
+    let alamat = document.getElementById("alamat").value;
+    let hobi = document.getElementById("hobi").value;
+
+    let jk = document.querySelector('input[name="jk"]:checked');
+    jk = jk ? jk.value : "-";
+
+    document.getElementById("outNama").innerText = nama;
+    document.getElementById("outKelas").innerText = kelas;
+    document.getElementById("outJK").innerText = jk;
+    document.getElementById("outAlamat").innerText = alamat;
+    document.getElementById("outHobi").innerText = hobi;
+
+    let hasil = document.getElementById("output");
+    hasil.classList.remove("show");
+    void hasil.offsetWidth; // reset animasi
+    hasil.classList.add("show");
+});
+</script>
+
+</body>
+</html>

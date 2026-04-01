@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Lampiran Foto</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #d7ccc8, #efebe9);
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        background: #fffaf5;
+        padding: 25px;
+        border-radius: 15px;
+        width: 400px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        text-align: center;
+        animation: fadeIn 1s ease;
+    }
+
+    h3 {
+        color: #6d4c41;
+        margin-bottom: 5px;
+    }
+
+    p {
+        color: #5d4037;
+        font-size: 14px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #8d6e63;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #6d4c41;
+        transform: scale(1.05);
+    }
+
+    #fotoBox {
+        margin-top: 15px;
+        display: none;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .foto-item {
+        background: #fff;
+        padding: 8px;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.5s forwards;
+    }
+
+    .foto-item img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .foto-item p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* delay animasi */
+    .foto-item:nth-child(1) { animation-delay: 0.2s; }
+    .foto-item:nth-child(2) { animation-delay: 0.4s; }
+    .foto-item:nth-child(3) { animation-delay: 0.6s; }
+    .foto-item:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h3>Lampiran Foto</h3>
+    <p>Lihat foto dan deskripsi</p>
+    <button onclick="tampilFoto()">Lihat Foto</button>
+
+    <div id="fotoBox">
+        <div class="grid">
+            <div class="foto-item">
+                <img src="images/tampilan xampp.jpg">
+                <p>server saat running</p>
+            </div>
+
+            <div class="foto-item">
+                <img src="images/form data sebelum diisi.jpg">
+                <p>forum sebelum diisi</p>
+            </div>
+
+            <div class="foto-item">
+                <img src="images/form data setelah diisi.jpg">
+                <p>forum setelah diisi</p>
+            </div>
+
+            <div class="foto-item">
+                <img src="images/tampilan foldernya.jpg">
+                <p>tampilan folder</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function tampilFoto() {
+    document.getElementById("fotoBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>

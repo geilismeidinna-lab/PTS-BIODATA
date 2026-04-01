@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Card</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 20px;
+    }
+
+    .card {
+        width: 250px;
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+    }
+
+    .card button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        background: black;
+        color: white;
+        cursor: pointer;
+    }
+
+    .card button:hover {
+        background: #444;
+    }
+
+    #fotoBox {
+        display: none;
+        margin-top: 10px;
+    }
+
+    #fotoBox img {
+        width: 100%;
+        border-radius: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- CARD 1 -->
+<div class="card">
+    <h3>Form Biodata</h3>
+    <a href="form biodata (2).html">
+    <button onclick="bukaForm()">Buka Form</button>
+    </a>
+</div>
+
+<!-- CARD 2 -->
+<div class="card">
+    <h3>lampiran foto</h3>
+    <a href="foto.html">
+    <button onclick="bukaForm()">Buka Form</button>
+    </a>
+</div>
+
+<script>
+function bukaForm() {
+    window.location.href = "form.html";
+}
+
+function tampilFoto() {
+    let box = document.getElementById("fotoBox");
+    box.style.display = "block";
+}
+</script>
+
+</body>
+</html>
